@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="hello.mapper.UserMapper">
+
+    <select id="selectRecentOne" resultType="hello.pojo.User">
+        select
+        id,
+        `name`,
+        email
+        from user
+        ORDER BY id DESC
+        limit 1
+    </select>
+
+    <select id="selectAll" resultType="hello.pojo.User">
+        SELECT *
+        FROM user
+    </select>
+
+    <insert id="insert" parameterType="hello.pojo.User">
+        INSERT INTO user(`name`, email)
+        VALUE (#{name}, #{email})
+    </insert>
+
+</mapper>
